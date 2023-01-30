@@ -1,6 +1,6 @@
 package com.skypro.courswork_2.tasks;
 /**
- * Общий клас для задач.
+ * Общий класс для задач.
  */
 
 import com.skypro.courswork_2.Recurring;
@@ -64,16 +64,12 @@ public abstract class Task implements Recurring{
         }
     }
 
-    public static int getIdCounter() {
-        return idCounter++;
-    }
-
     public int getId() {
         return this.id;
     }
 
     public void setId() {
-        this.id = getIdCounter();
+        this.id = idCounter++;
     }
 
     public LocalDateTime getLocalDateTime() {
