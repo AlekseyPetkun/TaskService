@@ -1,7 +1,4 @@
 package com.skypro.courswork_2;
-/**
- * Сервис по управлению задачами.
- */
 
 import com.skypro.courswork_2.exceptions.TaskNotFoundException;
 import com.skypro.courswork_2.tasks.Task;
@@ -13,13 +10,19 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * Сервис по управлению задачами.
+ */
 public class TaskService {
+
     private final Map<Integer, Task> taskMap = new HashMap<>();
 
     public void addTask(Task task) {
+
         this.taskMap.put(task.getId(), task);
     }
     public void removeTask(int id) throws TaskNotFoundException {
+
         if (taskMap.containsKey(id)) {
             this.taskMap.remove(id);
         } else {
@@ -28,6 +31,7 @@ public class TaskService {
     }
 
     public Collection<Task> getAllByDate(LocalDate date) {
+
         Collection<Task> tasksByDay = new ArrayList<>();
         Collection<Task> allTasks = taskMap.values();
 
