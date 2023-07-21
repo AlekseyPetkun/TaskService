@@ -1,7 +1,4 @@
 package com.skypro.courswork_2.tasks;
-/**
- * Общий класс для задач.
- */
 
 import com.skypro.courswork_2.Recurring;
 import com.skypro.courswork_2.TaskType;
@@ -15,20 +12,23 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Objects;
 
-public abstract class Task implements Recurring{
+/**
+ * Общий класс для задач.
+ */
+public abstract class Task implements Recurring {
 
     private String taskTitle;
     private String taskDescription;
     private static int idCounter = 1;
     private int id;
     private final TaskType taskType;
-
     private LocalDateTime localDateTime;
 
     public Task(String taskTitle,
                 String taskDescription,
                 TaskType taskType,
                 LocalDateTime localDateTime) throws IncorrectArgumentException {
+
         setTaskTitle(taskTitle);
         setTaskDescription(taskDescription);
         setLocalDateTime(localDateTime);
@@ -45,6 +45,7 @@ public abstract class Task implements Recurring{
     }
 
     public void setTaskTitle(String taskTitle) throws IncorrectArgumentException {
+
         if (taskTitle == null || taskTitle.isEmpty() || taskTitle.isBlank()) {
             throw new IncorrectArgumentException("название задачи!");
         } else {
@@ -53,10 +54,12 @@ public abstract class Task implements Recurring{
     }
 
     public String getTaskDescription() {
+
         return taskDescription;
     }
 
     public void setTaskDescription(String taskDescription) throws IncorrectArgumentException {
+
         if (taskDescription == null || taskDescription.isEmpty() || taskDescription.isBlank()) {
             throw new IncorrectArgumentException("описание задачи!");
         } else {
@@ -65,18 +68,22 @@ public abstract class Task implements Recurring{
     }
 
     public int getId() {
-        return this.id;
+
+        return id;
     }
 
     public void setId() {
+
         this.id = idCounter++;
     }
 
     public LocalDateTime getLocalDateTime() {
+
         return localDateTime;
     }
 
     public void setLocalDateTime(LocalDateTime localDateTime) throws IncorrectArgumentException {
+
         if (localDateTime == null) {
             throw new IncorrectArgumentException("дата и время задачи!");
         } else {
@@ -85,6 +92,7 @@ public abstract class Task implements Recurring{
     }
 
     public TaskType getTaskType() {
+
         return taskType;
     }
 

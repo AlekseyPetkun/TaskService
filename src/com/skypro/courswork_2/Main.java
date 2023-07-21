@@ -1,10 +1,5 @@
 package com.skypro.courswork_2;
 
-
-/**
- * Ежедневник.
- */
-
 import com.skypro.courswork_2.exceptions.IncorrectArgumentException;
 import com.skypro.courswork_2.exceptions.TaskNotFoundException;
 import com.skypro.courswork_2.tasks.*;
@@ -12,15 +7,20 @@ import com.skypro.courswork_2.tasks.*;
 import java.time.*;
 import java.util.*;
 
+/**
+ * Ежедневник.
+ */
 public class Main {
+
     private static final TaskService taskService = new TaskService();
 
     public static void main(String[] args) throws IncorrectArgumentException {
+
         try (Scanner scanner = new Scanner(System.in)) {
             label:
             while (true) {
                 printMenu();
-                System.out.print("Выберите пункт меню: ");
+                System.out.println("Выберите пункт меню: ");
                 if (scanner.hasNextInt()) {
                     int menu = scanner.nextInt();
                     switch (menu) {
@@ -45,6 +45,7 @@ public class Main {
     }
 
     private static void inputTask(Scanner scanner) throws IncorrectArgumentException {
+
         System.out.println("Введите название задачи: ");
         String taskTitle = scanner.next();
 
@@ -122,6 +123,7 @@ public class Main {
     }
 
     private static void printMenu() {
+
         System.out.println(
                 "1. Добавить задачу\n" +
                         "2. Удалить задачу\n" +
@@ -131,6 +133,7 @@ public class Main {
     }
 
     private static void removeTask(Scanner scanner) {
+
         System.out.println("Введите номер Id задачи для удаления!");
         int id = scanner.nextInt();
 
@@ -142,6 +145,7 @@ public class Main {
     }
 
     public static void printAllTasksByDay(Scanner scanner) {
+
         System.out.print("Введите дату.");
 
         System.out.print("Укажите день в формате dd: ");
